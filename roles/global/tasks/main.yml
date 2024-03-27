@@ -1,0 +1,19 @@
+---
+- name: Uninstall unwanted packages
+  ansible.builtin.apt:
+    state: absent
+    pkg:
+    - iptables
+    - iptables-persistent
+
+- name: "Do basic installation of the System"
+  ansible.builtin.apt:
+    state: latest
+    pkg:
+    - nftables
+    - net-tools
+    - curl
+    - wget
+    - bind9-utils
+    - vim
+    - knot
