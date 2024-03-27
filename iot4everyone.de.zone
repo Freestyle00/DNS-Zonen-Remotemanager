@@ -1,0 +1,15 @@
+$ORIGIN iot4everyone.de.
+$TTL 3600
+; SOA Records
+@               IN      SOA     NS-1.iot4everyone.de. rudak.denic.de.  2024270301 3600 1200 604800 600
+; NS Records
+@               IN      NS      NS-1.iot4everyone.de.
+@               IN      NS      NS-2.iot4everyone.de.
+; A Records
+@               IN      A       81.91.170.12
+NS-1            IN      A       128.140.65.189
+NS-2            IN      A       78.47.10.197
+; AAAA Records
+;@               IN      AAAA
+NS-1            IN      AAAA    2a01:4f8:1c1b:7cf6::1
+NS-2            IN      AAAA    2a01:4f8:1c1b:7cf7::1
