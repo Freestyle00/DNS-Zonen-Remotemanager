@@ -1,0 +1,34 @@
+server:
+  automatic-acl: on
+  listen: [ 0.0.0.0@53, ::@53 ]
+
+log:
+  - target: syslog
+    any: info
+
+key:
+  - id: iotkey
+    algorithm: hmac-sha384
+    secret: {{ tsig-key }}
+
+acl:
+  - id: key_rule
+    key: iotkey
+    action: [transfer, notify]
+
+remote:
+  - id: secondary
+    address: 10.10.10.3@53
+    key: iotkey
+
+template:
+  - id: default
+    global-module: [mod-stats]
+
+zone:
+  # Primary zone
+  - domain: iot4everyone.de
+    storage: /var/lib/knot/zones/
+    file: iot4everyone.de.zone
+    notify: secondary
+    acl: notify_key_rule

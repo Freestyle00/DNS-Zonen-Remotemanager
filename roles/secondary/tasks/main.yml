@@ -1,0 +1,8 @@
+---
+- name: install knot.conf
+  ansible.builtin.template:
+    src: files/knot.conf.j2
+    dest: /etc/knot/knot.conf
+    owner: root
+    group: knot
+    mode: '640'

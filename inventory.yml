@@ -3,8 +3,8 @@ nameserver:
     NS-1:
       IPv4: 128.140.65.189
       IPv6: 2a01:4f8:1c1b:7cf6::1
-      role: "primary"
+      server_role: "primary"
     NS-2:
       IPv4: 78.47.10.197
       IPv6: 2a01:4f8:1c1b:7cf7::1
-      role: "secondary"
+      server_role: "secondary"

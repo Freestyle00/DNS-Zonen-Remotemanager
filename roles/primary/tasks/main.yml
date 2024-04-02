@@ -1,0 +1,50 @@
+---
+- name: Install webhook package
+  ansible.builtin.apt:
+    state: latest
+    pkg: webhook
+
+- name: Temporary stop the webhook service
+  ansible.builtin.systemd:
+    state: stopped
+    name: webhook
+
+- name: install webhook configuration
+  ansible.builtin.template:
+    src: files/webhook.conf.2
+    dest: /etc/webhook.conf
+    owner: root
+    group: root
+    mode: '644'
+
+- name: install knot.conf
+  ansible.builtin.template:
+    src: files/knot.conf.j2
+    dest: /etc/knot/knot.conf
+    owner: root
+    group: knot
+    mode: '640'
+
+- name: Create the /root/scripts directory
+  ansible.builtin.file:
+    path: /root/scripts
+    state: directory
+
+- name: Put new zone script in the directory
+  ansible.builtin.get_url:
+    url: https://raw.githubusercontent.com/Freestyle00/DNS-Zonen-Remotemanager/main/get-new-zone.sh
+    dest: /root/scripts/get-new-zone.sh
+    owner: root
+    group: root
+    mode: '755'
+
+- name: execute get_new_zone script to get the first zone
+  ansible.builtin.script:
+    cmd: /root/scripts/get-new-zone.sh
+    chdir: /var/lib/knot/zones
+
+- name: Start webhook service
+  ansible.builtin.systemd:
+    state: started
+    name: webhook
+    enabled: true

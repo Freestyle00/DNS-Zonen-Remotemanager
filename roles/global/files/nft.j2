@@ -1,0 +1,21 @@
+#!/usr/sbin/nft -f
+
+flush ruleset
+
+table inet firewall {
+    chain input {
+        #Per default block everything unless specifically allowed.
+        type filter hook input priority filter; policy drop;
+        udp dport 53 accept
+        tcp dport 53 accept
+        udp dport 22 accept
+        tcp dport 22 accept
+{% if server_role == "primary" %}
+        udp dport 9000 accept
+        tcp dport 9000 accept
+{% endif %}
+        ct state established, related accept
+        ip protocol icmp icmp type { echo-reply, destination-unreachable, source-quench, echo-request, time-exceeded } accept
+        ip6 nexthdr ipv6-icmp icmpv6 type { destination-unreachable, packet-too-big, time-exceeded, parameter-problem, echo-request, echo-reply, nd-router-advert, nd-neighbor-solicit, nd-neighbor-advert } accept
+    }
+}

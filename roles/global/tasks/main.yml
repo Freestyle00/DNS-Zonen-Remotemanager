@@ -1,4 +1,9 @@
 ---
+- name: Update and upgrade apt packages
+  apt:
+    upgrade: yes
+    update_cache: yes
+
 - name: Uninstall unwanted packages
   ansible.builtin.apt:
     state: absent
@@ -6,7 +11,7 @@
     - iptables
     - iptables-persistent
 
-- name: "Do basic installation of the System"
+- name: Do basic installation of the System
   ansible.builtin.apt:
     state: latest
     pkg:
@@ -17,3 +22,39 @@
     - bind9-utils
     - vim
     - knot
+
+- name: Temporary stop the Knot service
+  ansible.builtin.systemd:
+    state: stopped
+    name: knot
+
+- name: Create /var/lib/knot/zones directory
+  ansible.builtin.file:
+    path: /var/lib/knot/zones
+    state: directory
+
+- name: Configure nftables
+  ansible.builtin.template:
+    src: files/nft.j2
+    dest: /etc/nftables.conf
+    owner: root
+    mode: '755'
+
+- name: restart nftables service
+  ansible.builtin.systemd:
+    state: restarted
+    name: nftables
+
+- name: Start role specific tasks for "primary"
+  ansible.builtin.include_tasks: ../../primary/tasks/main.yml
+  when: server_role == "primary"
+
+- name: Start role specific tasks for "secondary"
+  ansible.builtin.include_tasks: ../../secondary/tasks/main.yml
+  when: server_role == "secondary"
+
+- name: Start the Knot service
+  ansible.builtin.systemd:
+    state: started
+    enabled: true
+    name: knot

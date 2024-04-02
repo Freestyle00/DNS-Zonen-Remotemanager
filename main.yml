@@ -1,3 +1,9 @@
 #!/usr/bin/ansible-playbook
 
 ---
+- name: Start with the global installation steps
+  hosts: "nameserver"
+  vars_files:
+    - secrets/secrets.yml
+  roles:
+    - { role: global }
