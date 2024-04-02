@@ -1,10 +1,9 @@
+---
 nameserver:
   hosts:
     NS-1:
-      IPv4: 128.140.65.189
-      IPv6: 2a01:4f8:1c1b:7cf6::1
+      ansible_host: 128.140.65.189
       server_role: "primary"
     NS-2:
-      IPv4: 78.47.10.197
-      IPv6: 2a01:4f8:1c1b:7cf7::1
+      ansible_host: 78.47.10.197
       server_role: "secondary"
