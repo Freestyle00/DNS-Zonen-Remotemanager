@@ -39,8 +39,8 @@
     mode: '755'
 
 - name: execute get_new_zone script to get the first zone
-  ansible.builtin.script:
-    cmd: /root/scripts/get-new-zone.sh
+  ansible.builtin.command:
+    cmd: /bin/sh /root/scripts/get-new-zone.sh
     chdir: /var/lib/knot/zones
 
 - name: Start webhook service
