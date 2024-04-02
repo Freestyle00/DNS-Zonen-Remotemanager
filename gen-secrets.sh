@@ -12,5 +12,4 @@ fi
 
 TSIGKEY=$(keymgr -t my_name hmac-sha384 | awk '{print $2}' | tail -n 1)
 
-echo $TSIGKEY
 sed "s|^TsigKey:.*\$|TsigKey: $TSIGKEY|" -i ./secrets/secrets.yml
