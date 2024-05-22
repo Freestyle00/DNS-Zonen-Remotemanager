@@ -6,6 +6,6 @@ nameserver:
       ansible_user: root
       server_role: "primary"
     NS-2:
-      ansible_host: 78.47.10.197
+      ansible_host: 94.130.77.134
       ansible_user: root
       server_role: "secondary"
