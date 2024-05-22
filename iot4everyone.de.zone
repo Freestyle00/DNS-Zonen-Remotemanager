@@ -17,3 +17,4 @@ NS-2            IN      AAAA    2a01:4f8:1c1b:7cf7::1
 works           IN      TXT     "This Nameserver answers"
 works2          IN      TXT     "The Nameserver are getting updates"
 works3          IN      TXT     "Update No. 3"
+;doku 2
