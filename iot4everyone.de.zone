@@ -21,5 +21,6 @@ works4		IN	TXT	"FUnctiontest"
 works5		IN	TXT	"Webhook test"
 works5		IN	TXT	"Serial test"
 works6		IN	TXT	"test"
-works7		IN	TXT 	"DAs es funktioniert"
+works7		IN	TXT "DAs es funktioniert"
+works8    IN  TXT "webhook test" 
 ;doku 2
