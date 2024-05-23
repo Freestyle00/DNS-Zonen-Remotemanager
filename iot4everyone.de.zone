@@ -1,7 +1,7 @@
 $ORIGIN iot4everyone.de.
 $TTL 3600
 ; SOA Records
-@               IN      SOA     NS-1.iot4everyone.de. rudak.denic.de.  2024220505 3600 1200 604800 600
+@               IN      SOA     NS-1.iot4everyone.de. rudak.denic.de.  2024220507 3600 1200 604800 600
 ; NS Records
 @               IN      NS      NS-1.iot4everyone.de.
 @               IN      NS      NS-2.iot4everyone.de.
@@ -21,4 +21,5 @@ works4		IN	TXT	"FUnctiontest"
 works5		IN	TXT	"Webhook test"
 works5		IN	TXT	"Serial test"
 works6		IN	TXT	"test"
+works7		IN	TXT 	"DAs es funktioniert"
 ;doku 2
