@@ -26,4 +26,5 @@ works8    IN  TXT "webhook test"
 works9    IN  TXT "webhook test 2"
 works10   IN  TXT "webhook test 3"
 works11   IN  TXT "webhook test 4"
+works12   IN  TXT "webhook test 5"
 ;doku 2
