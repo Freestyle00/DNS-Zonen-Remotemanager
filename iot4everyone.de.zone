@@ -30,4 +30,5 @@ works12   IN  TXT "webhook test 5"
 works13   IN  TXT "webhook test 6"
 works20    IN TXT "Das Update hat funktioniert"
 works21  IN  TXT "Screenshot vorfuehrung"
+works22 IN TXT "Screenshot voruehrung 2"
 ;doku 2
