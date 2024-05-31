@@ -31,4 +31,5 @@ works13   IN  TXT "webhook test 6"
 works20    IN TXT "Das Update hat funktioniert"
 works21  IN  TXT "Screenshot vorfuehrung"
 works22 IN TXT "Screenshot voruehrung 2"
+works23 IN TXT "Cache steht im weg"
 ;doku 2
