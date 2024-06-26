@@ -15,23 +15,4 @@ NS-1            IN      AAAA    2a01:4f8:1c1b:7cf6::1
 NS-2            IN      AAAA    2a01:4f8:1c1c:2004::1
 ; TXT Records
 works           IN      TXT     "This Nameserver answers"
-works2          IN      TXT     "The Nameserver are getting updates"
-works3          IN      TXT     "Update No. 3"
-works4		IN	TXT	"FUnctiontest"
-works5		IN	TXT	"Webhook test"
-works5		IN	TXT	"Serial test"
-works6		IN	TXT	"test"
-works7		IN	TXT "DAs es funktioniert"
-works8    IN  TXT "webhook test" 
-works9    IN  TXT "webhook test 2"
-works10   IN  TXT "webhook test 3"
-works11   IN  TXT "webhook test 4"
-works12   IN  TXT "es funktioniert"
-works12   IN  TXT "webhook test 5"
-works13   IN  TXT "webhook test 6"
-works20    IN TXT "Das Update hat funktioniert"
-works21  IN  TXT "Screenshot vorfuehrung"
-works22 IN TXT "Screenshot voruehrung 2"
-works23 IN TXT "Cache steht im weg"
-funktioniert IN TXT "test"
-;doku 2
+
